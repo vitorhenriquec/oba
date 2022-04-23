@@ -32,8 +32,8 @@ docker system prune -f && docker network prune -f && docker image prune -a -f &&
 
 **Note:** The following data are the default configuration to access the database:
 * URL: ``` jdbc:postgres:thin@//localhost:5432/postgres ```
-* POSTGRES_USER: PFLEGE_CLIENT_ADMIN
-* POSTGRES_PASSWORD: PFLEGE_CLIENT_LOCAL
+* POSTGRES_USER: OBA_ADMIN
+* POSTGRES_PASSWORD: OBA_LOCAL
 
 
 ##Setting up the database's tables
