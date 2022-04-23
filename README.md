@@ -1,5 +1,5 @@
-# oba
-A public repository for learning object
+# OBA [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+A public repository for learning objects
 
 ## Setting up local containers
 
@@ -36,7 +36,7 @@ docker system prune -f && docker network prune -f && docker image prune -a -f &&
 * POSTGRES_PASSWORD: OBA_LOCAL
 
 
-##Setting up the database's tables
+## Setting up the database's tables
 
 The initial database is empty, so it is important to run the migrations of the tables. To do so run the following command:
 
