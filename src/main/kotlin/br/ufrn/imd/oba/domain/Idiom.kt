@@ -9,13 +9,13 @@ import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 
 @Entity
-@Table(name="idioma")
-data class Idioma (
+@Table(name="idiom")
+data class Idiom (
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idioma_gen")
-	@SequenceGenerator(name="idioma_gen", sequenceName = "sq_idioma_id", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idiom_gen")
+	@SequenceGenerator(name="idiom_gen", sequenceName = "sq_idiom_id", allocationSize = 1)
 	val id: Long = 0L,
 
-	@Column(name = "nome")
-	val nome: String
+	@Column(name = "name")
+	val name: String
 )

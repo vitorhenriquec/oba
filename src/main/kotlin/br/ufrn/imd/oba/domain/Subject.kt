@@ -9,13 +9,13 @@ import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 
 @Entity
-@Table(name="tipo_objeto")
-data class TipoObjeto (
+@Table(name="subject")
+data class Subject (
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tipo_objeto_gen")
-	@SequenceGenerator(name="tipo_objeto_gen", sequenceName = "sq_tipo_objeto_id", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subject_gen")
+	@SequenceGenerator(name="subject_gen", sequenceName = "sq_subject_id", allocationSize = 1)
 	val id: Long = 0L,
 
-	@Column(name = "nome")
-	val nome: String
+	@Column(name = "name")
+	val name: String
 )

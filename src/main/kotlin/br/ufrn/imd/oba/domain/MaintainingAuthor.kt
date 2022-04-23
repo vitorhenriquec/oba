@@ -9,15 +9,15 @@ import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 
 @Entity
-@Table(name = "auto_mantenedor")
-data class AutorMantenedor (
+@Table(name = "maintaining_author")
+data class MaintainingAuthor (
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auto_mantenedor_gen")
-	@SequenceGenerator(name="auto_mantenedor_gen", sequenceName = "sq_auto_mantenedor_id", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maintaining_author_gen")
+	@SequenceGenerator(name="maintaining_author_gen", sequenceName = "sq_maintaining_author_id", allocationSize = 1)
 	val id: Long = 0L,
 
-	@Column(name = "nome")
-	val nome: String,
+	@Column(name = "name")
+	val name: String,
 
 	@Column(name = "email")
 	val email: String,
