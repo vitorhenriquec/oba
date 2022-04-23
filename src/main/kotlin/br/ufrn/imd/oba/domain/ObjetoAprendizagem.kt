@@ -13,13 +13,15 @@ import javax.persistence.JoinColumn
 import javax.persistence.JoinTable
 import javax.persistence.ManyToMany
 import javax.persistence.ManyToOne
+import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 
 @Entity
-@Table(name="objetoaprendizagem")
+@Table(name="objeto_aprendizagem")
 data class ObjetoAprendizagem(
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "objeto_aprendizagem_gen")
+	@SequenceGenerator(name="objeto_aprendizagem_gen", sequenceName = "sq_objeto_aprendizagem_id", allocationSize = 1)
 	val id: Long = 0L,
 	
 	@Column(name="nome")
@@ -28,7 +30,7 @@ data class ObjetoAprendizagem(
 	@Column(name="descricao", columnDefinition="text")
 	val descricao: String,
 	
-	@Column(name="qtd_acessos")
+	@Column(name="quantidade_acessos")
 	val qtdAcessos: Int,
 	
 	@Column(name="link", columnDefinition="text")
@@ -78,13 +80,4 @@ data class ObjetoAprendizagem(
 	    inverseJoinColumns=[JoinColumn(name="descritor_id", referencedColumnName="id")]
 	)
 	val descritores: Set<Descritor>,
-
-	@ManyToMany(fetch= FetchType.EAGER)
-	@JoinTable(
-		name="objetoaprendizagem_habilidade",
-		schema="public",
-		joinColumns = [JoinColumn(name="objetoaprendizagem", referencedColumnName="id")],
-	    inverseJoinColumns=[JoinColumn(name="habilidade_id", referencedColumnName="id")]
-	)
-	val habilidades: Set<Habilidade>
 )

@@ -4,6 +4,7 @@ plugins {
 	id("org.springframework.boot") version "2.6.7"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	id("org.asciidoctor.convert") version "1.5.8"
+	id("org.flywaydb.flyway") version "7.1.1"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 }
@@ -68,8 +69,8 @@ tasks.withType<Test> {
 //	dependsOn(test)
 //}
 
-//flyway {
-//    url = "jdbc:postgresql://localhost:5432/postgres"
-//    user = "OBA_ADMIN"
-//    password = "OBA_LOCAL"
-//}
+flyway {
+    url = "jdbc:postgresql://localhost:5432/postgres"
+    user = "OBA_ADMIN"
+    password = "OBA_LOCAL"
+}
