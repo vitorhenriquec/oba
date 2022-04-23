@@ -43,3 +43,6 @@ The initial database is empty, so it is important to run the migrations of the t
 ```shell
 ./gradlew flywayMigrate -DServer=local_database
 ```
+
+## Considerations
+This project was made based on [Obama](https://obama.imd.ufrn.br/) from this [repository](git@github.com:informaticaeducacional/obama.git).
