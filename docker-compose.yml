@@ -23,3 +23,9 @@ services:
     volumes:
       - ./tmp/postgres:/var/lib/postgresql/data
 
+    oba_redis_cluster:
+      container_name: oba_redis_cluster
+      image: grokzen/redis-cluster
+      ports:
+        7000:7000
+

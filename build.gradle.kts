@@ -67,8 +67,8 @@ tasks.withType<Test> {
 //	dependsOn(test)
 //}
 
-flyway {
-    url = "jdbc:postgresql://localhost:5432/postgres"
-    user = "OBA_ADMIN"
-    password = "OBA_LOCAL"
-}
+//flyway {
+//    url = "jdbc:postgresql://localhost:5432/postgres"
+//    user = "OBA_ADMIN"
+//    password = "OBA_LOCAL"
+//}
