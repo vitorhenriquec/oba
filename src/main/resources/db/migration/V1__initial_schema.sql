@@ -118,8 +118,10 @@ CREATE TABLE descriptor (
 	code varchar(255) NULL,
 	description varchar(255) NULL,
 	content_theme_id int8 NULL,
+	education_level_id int8 NULL,
 	CONSTRAINT descriptor_pk PRIMARY KEY (id),
-	CONSTRAINT descriptor_fk01 FOREIGN KEY (content_theme_id) REFERENCES content_theme(id)
+	CONSTRAINT descriptor_fk01 FOREIGN KEY (content_theme_id) REFERENCES content_theme(id),
+	CONSTRAINT descriptor_fk02 FOREIGN KEY (education_level_id) REFERENCES education_level(id)
 );
 
 
@@ -143,6 +145,14 @@ CREATE TABLE learning_object_descriptor (
 	CONSTRAINT learning_object_descriptor_pk PRIMARY KEY (learning_object_id, descriptor_id),
 	CONSTRAINT learning_object_descriptor_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
 	CONSTRAINT learning_object_descriptor_fk02 FOREIGN KEY (descriptor_id) REFERENCES descriptor(id)
+);
+
+CREATE TABLE learning_object_skill (
+	learning_object_id int8 NOT NULL,
+	skill_id int8 NOT NULL,
+	CONSTRAINT learning_object_skill_pk PRIMARY KEY (learning_object_id, skill_id),
+	CONSTRAINT learning_object_skill_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
+	CONSTRAINT learning_object_skill_fk02 FOREIGN KEY (skill_id) REFERENCES skill(id)
 );
 
 

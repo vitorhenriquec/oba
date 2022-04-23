@@ -87,4 +87,12 @@ data class LearningObject(
 	    inverseJoinColumns=[JoinColumn(name="descriptor_id", referencedColumnName="id")]
 	)
 	val descriptors: Set<Descriptor>,
+
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+		name="learning_object_skill",
+		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
+		inverseJoinColumns=[JoinColumn(name="skill_id", referencedColumnName="id")]
+	)
+	val skills: Set<Skill>
 )

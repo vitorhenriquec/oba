@@ -26,9 +26,13 @@ data class Descriptor(
 	val code: String,
 
 	@ManyToOne
-	@JoinColumn(name="tema_conteudo_id")
-	val temaConteudo: ContentTheme,
+	@JoinColumn(name="content_theme_id")
+	val contentTheme: ContentTheme,
 
 	@ManyToMany(mappedBy="descriptors")
-	val objetosAprendizagem: List<LearningObject>
+	val learningObjects: List<LearningObject>,
+
+	@ManyToOne
+	@JoinColumn(name = "education_level_id")
+	val educationLevel: EducationLevel
 )
