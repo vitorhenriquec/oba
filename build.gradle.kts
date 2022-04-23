@@ -4,6 +4,7 @@ plugins {
 	id("org.springframework.boot") version "2.6.7"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	id("org.asciidoctor.convert") version "1.5.8"
+	id("org.flywaydb.flyway") version "7.1.1"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 }
@@ -20,11 +21,12 @@ extra["snippetsDir"] = file("build/generated-snippets")
 extra["testcontainersVersion"] = "1.16.2"
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("org.springframework.boot:spring-boot-starter-cache")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-data-rest")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("com.github.ben-manes.caffeine:caffeine")
 	implementation("com.vladmihalcea:hibernate-types-52:2.10.2")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
@@ -67,8 +69,8 @@ tasks.withType<Test> {
 //	dependsOn(test)
 //}
 
-//flyway {
-//    url = "jdbc:postgresql://localhost:5432/postgres"
-//    user = "OBA_ADMIN"
-//    password = "OBA_LOCAL"
-//}
+flyway {
+    url = "jdbc:postgresql://localhost:5432/postgres"
+    user = "OBA_ADMIN"
+    password = "OBA_LOCAL"
+}

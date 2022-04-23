@@ -15,17 +15,11 @@ services:
     ports:
       - "5432:5432"
     networks:
-      pflege_client_network:
+      oba_network:
         ipv4_address: 145.0.0.2
     environment:
       POSTGRES_USER: "OBA_ADMIN"
       POSTGRES_PASSWORD: "OBA_LOCAL"
     volumes:
       - ./tmp/postgres:/var/lib/postgresql/data
-
-    oba_redis_cluster:
-      container_name: oba_redis_cluster
-      image: grokzen/redis-cluster
-      ports:
-        - "7000:7000"
 
