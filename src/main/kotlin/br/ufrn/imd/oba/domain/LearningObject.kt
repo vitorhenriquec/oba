@@ -74,11 +74,11 @@ data class LearningObject(
 
 	@JoinColumn(name="plataform_id")
 	@ManyToOne
-	val plataform: Plataform,
+	val plataform: Plataform = Plataform(),
 
 	@JoinColumn(name="use_license_type_id")
 	@ManyToOne
-	val licencaDeUso: UseLicenseType,
+	val licencaDeUso: UseLicenseType = UseLicenseType(),
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
@@ -86,7 +86,7 @@ data class LearningObject(
 		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
 	    inverseJoinColumns=[JoinColumn(name="descriptor_id", referencedColumnName="id")]
 	)
-	val descriptors: Set<Descriptor>,
+	val descriptors: Set<Descriptor> = setOf(),
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
@@ -94,5 +94,5 @@ data class LearningObject(
 		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
 		inverseJoinColumns=[JoinColumn(name="skill_id", referencedColumnName="id")]
 	)
-	val skills: Set<Skill>
+	val skills: Set<Skill> = setOf()
 )

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
-data class LearningObjectSearchResponse(
+data class LearningObjectFindAllByParamertsResponse(
     val name: String,
 
     val link: String,

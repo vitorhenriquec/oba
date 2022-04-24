@@ -1,9 +1,13 @@
 package br.ufrn.imd.oba.service
 
-import br.ufrn.imd.oba.extension.toLearningObjectSearchResponse
+import br.ufrn.imd.oba.domain.LearningObject
+import br.ufrn.imd.oba.exception.LearningObjectNotFoundException
+import br.ufrn.imd.oba.extension.learningObjectFindAllByParamertsResponse
+import br.ufrn.imd.oba.extension.toLeaningObjectFindByIdResponse
 import br.ufrn.imd.oba.repository.LearningObjectRepository
 import br.ufrn.imd.oba.request.LearningObjectSearchRequest
-import br.ufrn.imd.oba.response.LearningObjectSearchResponse
+import br.ufrn.imd.oba.response.LearningObjectFindAllByParamertsResponse
+import br.ufrn.imd.oba.response.LearningObjectFindByIdResponse
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -14,10 +18,10 @@ class LearningObjectService(
     private val curriculumService: CurriculumService
 ) {
 
-    fun search(
+    fun findAllByParameters(
         pageable: Pageable,
         learningObjectSearchRequest: LearningObjectSearchRequest
-    ): Page<LearningObjectSearchResponse> {
+    ): Page<LearningObjectFindAllByParamertsResponse> {
         val curriculumName = learningObjectSearchRequest.curriculumShortName
 
         return if (!curriculumName.isNullOrBlank()) {
@@ -53,7 +57,13 @@ class LearningObjectService(
                 pageable
             )
         }.map {
-            it.toLearningObjectSearchResponse()
+            it.learningObjectFindAllByParamertsResponse()
         }
     }
+
+    fun findById(learningObjectId:Long): LearningObjectFindByIdResponse{
+        return learningObjectRepository.findById(learningObjectId)
+            .orElseThrow{LearningObjectNotFoundException()}.toLeaningObjectFindByIdResponse()
+    }
+
 }

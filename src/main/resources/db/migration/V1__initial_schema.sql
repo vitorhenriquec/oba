@@ -59,7 +59,7 @@ CREATE TABLE object_type (
 CREATE TABLE education_year (
 	id int8 NOT NULL,
 	name varchar(255) NOT NULL,
-	education_level_id int8 NULL,
+	education_level_id int8 NOT NULL,
 	CONSTRAINT education_year_pk PRIMARY KEY (id),
 	CONSTRAINT education_year_fk01 FOREIGN KEY (education_level_id) REFERENCES education_level(id)
 );

@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param
 interface LearningObjectRepository: JpaRepository<LearningObject, Long> {
     @Query(
         " SELECT lo FROM LearningObject lo " +
-         " INNER JOIN lo.descriptors d " +
+         " LEFT JOIN lo.descriptors d " +
          " WHERE lower(lo.name) like CONCAT('%',:name,'%') " +
          " AND (:viewType IS NULL OR lo.viewType = :viewType) " +
          " AND (:educationLevelId IS NULL OR d.educationLevel.id = :educationLevelId) " +
@@ -29,7 +29,7 @@ interface LearningObjectRepository: JpaRepository<LearningObject, Long> {
 
     @Query(
         " SELECT lo FROM LearningObject lo " +
-                " INNER JOIN lo.skills s " +
+                " LEFT JOIN lo.skills s " +
                 " WHERE lower(lo.name) like CONCAT('%',:name,'%') " +
                 " AND (:viewType IS NULL OR lo.viewType = :viewType) " +
                 " AND (:educationLevelId IS NULL OR s.educationYear.educationLevel.id = :educationLevelId) " +

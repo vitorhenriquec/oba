@@ -3,6 +3,7 @@ package br.ufrn.imd.oba.domain;
 import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -12,6 +13,8 @@ import javax.persistence.OneToMany
 import javax.persistence.OneToOne
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
+import org.hibernate.annotations.Fetch
+import org.hibernate.annotations.FetchMode
 
 @Entity
 @Table(name="content_theme")
@@ -29,9 +32,10 @@ data class ContentTheme (
 	@JoinColumn(referencedColumnName="id", name="subject_id")
 	val subject: Subject = Subject(),
 
-	@OneToMany(mappedBy = "contentTheme", cascade = [CascadeType.ALL])
+	@OneToMany(mappedBy = "contentTheme", cascade = [CascadeType.ALL], fetch = FetchType.LAZY, )
+	@Fetch(value= FetchMode.SELECT)
 	val skills: Set<Skill> = emptySet(),
 
 	@OneToOne
-	val curriculo: Curriculum = Curriculum(),
+	val curriculum: Curriculum = Curriculum(),
 )
