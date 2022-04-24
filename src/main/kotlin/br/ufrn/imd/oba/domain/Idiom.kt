@@ -7,9 +7,12 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
+import org.hibernate.annotations.Cache
+import org.hibernate.annotations.CacheConcurrencyStrategy
 
 @Entity
 @Table(name="idiom")
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 data class Idiom (
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idiom_gen")

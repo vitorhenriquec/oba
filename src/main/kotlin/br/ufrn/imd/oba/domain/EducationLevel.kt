@@ -20,11 +20,11 @@ data class EducationLevel(
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String,
+	val name: String = "",
 
 	@Column(name = "short_name")
-	val shortName: String,
+	val shortName: String = "",
 
 	@OneToMany(mappedBy = "educationLevel", cascade = [CascadeType.ALL])
-	val educationYears: Set<EducationYear>
+	val educationYears: Set<EducationYear> = setOf()
 )

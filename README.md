@@ -43,6 +43,13 @@ The initial database is empty, so it is important to run the migrations of the t
 ```shell
 ./gradlew flywayMigrate -DServer=local_database
 ```
+## Setting up the profile
+
+To set the profile it is necessary to use the following: 
+
+```
+-Dspring.profiles.active=local
+```
 
 ## Considerations
 This project was made based on [Obama](https://obama.imd.ufrn.br/) from this [repository](git@github.com:informaticaeducacional/obama.git).

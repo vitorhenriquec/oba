@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.JoinColumn
+import javax.persistence.ManyToMany
 import javax.persistence.ManyToOne
 import javax.persistence.OneToOne
 import javax.persistence.SequenceGenerator
@@ -21,18 +22,21 @@ data class Skill (
 	val id: Long = 0L,
 
 	@Column(columnDefinition="text", name = "description")
-	val description: String,
+	val description: String = "",
 
 	@Column(columnDefinition="text", name = "acquirements")
-	val acquirements: String,
+	val acquirements: String = "",
 
 	@Column(name = "code")
-	val code: String,
+	val code: String = "",
 
 	@ManyToOne
 	@JoinColumn(name="content_theme_id")
-	val contentTheme: ContentTheme,
+	val contentTheme: ContentTheme = ContentTheme(),
 
 	@OneToOne
-	val educationYear: EducationYear,
+	val educationYear: EducationYear = EducationYear(),
+
+	@ManyToMany(mappedBy="skills")
+	val learningObjects: List<LearningObject> = listOf()
 )

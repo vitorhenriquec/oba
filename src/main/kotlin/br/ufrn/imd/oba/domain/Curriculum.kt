@@ -7,9 +7,12 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
+import org.hibernate.annotations.Cache
+import org.hibernate.annotations.CacheConcurrencyStrategy
 
 @Entity
 @Table(name = "curriculum")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 data class Curriculum(
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "curriculum_gen")
@@ -17,8 +20,8 @@ data class Curriculum(
 	val id: Long = 0L,
 
 	@Column(name = "short_name")
-	val shortName: String,
+	val shortName: String = "",
 
 	@Column(name = "full_name")
-	val fullName: String,
+	val fullName: String = ""
 )

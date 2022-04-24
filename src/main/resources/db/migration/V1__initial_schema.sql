@@ -1,21 +1,21 @@
 CREATE TABLE maintaining_author (
 	id int8 NOT NULL,
 	email varchar(255) NULL,
-	name varchar(255) NULL,
+	name varchar(255) NOT NULL,
 	site varchar(255) NULL,
 	CONSTRAINT maintaining_author_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE curriculum (
 	id int8 NOT NULL,
-	short_name varchar(255) NULL,
-	full_name varchar(255) NULL,
+	short_name varchar(255) NOT NULL,
+	full_name varchar(255) NOT NULL,
 	CONSTRAINT curriculum_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE subject (
 	id int8 NOT NULL,
-	name varchar(255) NULL,
+	name varchar(255) NOT NULL,
 	CONSTRAINT subject_pk PRIMARY KEY (id)
 );
 
@@ -36,29 +36,29 @@ CREATE TABLE education_level (
 
 CREATE TABLE plataform (
 	id int8 NOT NULL,
-	name varchar(255) NULL,
+	name varchar(255) NOT NULL,
 	CONSTRAINT plataform_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE use_license_type (
 	id int8 NOT NULL,
-	name varchar(255) NULL,
-	version varchar(255) NULL,
+	name varchar(255) NOT NULL,
+	version varchar(255) NOT NULL,
 	CONSTRAINT use_license_type_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE object_type (
 	id int8 NOT NULL,
-	name varchar(255) NULL,
+	name varchar(255) NOT NULL,
 	CONSTRAINT object_type_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE education_year (
 	id int8 NOT NULL,
-	name varchar(255) NULL,
+	name varchar(255) NOT NULL,
 	education_level_id int8 NULL,
 	CONSTRAINT education_year_pk PRIMARY KEY (id),
 	CONSTRAINT education_year_fk01 FOREIGN KEY (education_level_id) REFERENCES education_level(id)
@@ -89,6 +89,7 @@ CREATE TABLE learning_object (
 CREATE TABLE learning_object_maintaining_author (
 	learning_object_id int8 NOT NULL,
 	maintaining_author_id int8 NOT NULL,
+	CONSTRAINT learning_object_maintaining_author_pk PRIMARY KEY (learning_object_id, maintaining_author_id),
 	CONSTRAINT learning_object_maintaining_author_fk01 FOREIGN KEY (maintaining_author_id) REFERENCES maintaining_author(id),
 	CONSTRAINT learning_object_maintaining_author_fk02 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id)
 );
@@ -97,6 +98,7 @@ CREATE TABLE learning_object_maintaining_author (
 CREATE TABLE learning_object_idiom (
 	learning_object_id int8 NOT NULL,
 	idiom_id int8 NOT NULL,
+	CONSTRAINT learning_object_idiom_pk PRIMARY KEY (learning_object_id, idiom_id),
 	CONSTRAINT learning_object_idiom_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
 	CONSTRAINT learning_object_idiom_fk02 FOREIGN KEY (idiom_id) REFERENCES idiom(id)
 );
@@ -104,8 +106,8 @@ CREATE TABLE learning_object_idiom (
 
 CREATE TABLE content_theme (
 	id int8 NOT NULL,
-	name varchar(255) NULL,
-	curriculum_id int8 NULL,
+	name varchar(255) NOT NULL,
+	curriculum_id int8 NOT NULL,
 	subject_id int8 NULL,
 	CONSTRAINT content_theme_pk PRIMARY KEY (id),
 	CONSTRAINT content_theme_fk01 FOREIGN KEY (subject_id) REFERENCES subject(id),
@@ -118,8 +120,10 @@ CREATE TABLE descriptor (
 	code varchar(255) NULL,
 	description varchar(255) NULL,
 	content_theme_id int8 NULL,
+	education_level_id int8 NULL,
 	CONSTRAINT descriptor_pk PRIMARY KEY (id),
-	CONSTRAINT descriptor_fk01 FOREIGN KEY (content_theme_id) REFERENCES content_theme(id)
+	CONSTRAINT descriptor_fk01 FOREIGN KEY (content_theme_id) REFERENCES content_theme(id),
+	CONSTRAINT descriptor_fk02 FOREIGN KEY (education_level_id) REFERENCES education_level(id)
 );
 
 
@@ -128,7 +132,7 @@ CREATE TABLE skill (
 	id int8 NOT NULL,
 	code varchar(255) NULL,
 	acquirements text NULL,
-	descricao text NULL,
+	description text NULL,
 	education_year_id int8 NULL,
 	content_theme_id int8 NULL,
 	CONSTRAINT skill_pk PRIMARY KEY (id),
@@ -143,6 +147,14 @@ CREATE TABLE learning_object_descriptor (
 	CONSTRAINT learning_object_descriptor_pk PRIMARY KEY (learning_object_id, descriptor_id),
 	CONSTRAINT learning_object_descriptor_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
 	CONSTRAINT learning_object_descriptor_fk02 FOREIGN KEY (descriptor_id) REFERENCES descriptor(id)
+);
+
+CREATE TABLE learning_object_skill (
+	learning_object_id int8 NOT NULL,
+	skill_id int8 NOT NULL,
+	CONSTRAINT learning_object_skill_pk PRIMARY KEY (learning_object_id, skill_id),
+	CONSTRAINT learning_object_skill_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
+	CONSTRAINT learning_object_skill_fk02 FOREIGN KEY (skill_id) REFERENCES skill(id)
 );
 
 

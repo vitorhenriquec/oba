@@ -25,36 +25,36 @@ data class LearningObject(
 	val id: Long = 0L,
 
 	@Column(name="name")
-	val name: String,
+	val name: String = "",
 
 	@Column(name="description", columnDefinition="text")
-	val description: String,
+	val description: String = "",
 
 	@Column(name="accesses_number")
 	val accessesNumber: Int = 0,
 
 	@Column(name="link", columnDefinition="text")
-	val link: String,
+	val link: String = "",
 
 	@Column(name="thumbnail_path")
-	val thumbnailPath: String,
+	val thumbnailPath: String = "",
 
 	@Column(name="release_date")
-	val releaseDate: LocalDateTime,
+	val releaseDate: LocalDateTime = LocalDateTime.now(),
 
 	@JoinColumn(name="object_type_id")
 	@ManyToOne
-	val objectType: ObjectType,
+	val objectType: ObjectType = ObjectType(),
 
 	@Column(name="version")
-	val version: String,
+	val version: String = "",
 
 	@Column(name="active")
 	val active: Boolean = false,
 
 	@Column(name="view_type")
 	@Enumerated(EnumType.STRING)
-	val viewType: ViewType,
+	val viewType: ViewType = ViewType.DESKTOP_WEB,
 
 	@ManyToMany
 	@JoinTable(
@@ -62,7 +62,7 @@ data class LearningObject(
 		joinColumns = [javax.persistence.JoinColumn(name = "learning_object_id", referencedColumnName = "id")],
 		inverseJoinColumns=[JoinColumn(name="idiom_id", referencedColumnName="id")]
 	)
-	val idiom: List<Idiom>,
+	val idiom: Set<Idiom> = setOf(),
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
@@ -70,7 +70,7 @@ data class LearningObject(
 		joinColumns = [javax.persistence.JoinColumn(name = "learning_object_id", referencedColumnName = "id")],
 		inverseJoinColumns=[JoinColumn(name="maintaining_author_id", referencedColumnName="id")]
 	)
-	val maintainingAuthors: List<MaintainingAuthor>,
+	val maintainingAuthors: Set<MaintainingAuthor> = setOf(),
 
 	@JoinColumn(name="plataform_id")
 	@ManyToOne
@@ -87,4 +87,12 @@ data class LearningObject(
 	    inverseJoinColumns=[JoinColumn(name="descriptor_id", referencedColumnName="id")]
 	)
 	val descriptors: Set<Descriptor>,
+
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+		name="learning_object_skill",
+		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
+		inverseJoinColumns=[JoinColumn(name="skill_id", referencedColumnName="id")]
+	)
+	val skills: Set<Skill>
 )
