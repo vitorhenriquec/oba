@@ -23,15 +23,15 @@ data class ContentTheme (
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String,
+	val name: String = "",
 
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id", name="subject_id")
-	val subject: Subject,
+	val subject: Subject = Subject(),
 
 	@OneToMany(mappedBy = "contentTheme", cascade = [CascadeType.ALL])
-	val skills: Set<Skill>,
+	val skills: Set<Skill> = emptySet(),
 
 	@OneToOne
-	val curriculo: Curriculum,
+	val curriculo: Curriculum = Curriculum(),
 )

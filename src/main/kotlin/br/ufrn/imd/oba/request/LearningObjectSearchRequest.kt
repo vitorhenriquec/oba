@@ -3,11 +3,13 @@ package br.ufrn.imd.oba.request
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
+import javax.validation.constraints.NotBlank
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
 data class LearningObjectSearchRequest (
-    val texto: String?,
+    @field:NotBlank
+    val name: String,
 
     val educationLevelId: Long?,
 
@@ -15,7 +17,9 @@ data class LearningObjectSearchRequest (
 
     val descriptorId: Long?,
 
-    val viewTypeId: Long?,
+    val skillId: Long?,
 
-    val curriculumId: Long?
+    val viewType: String?,
+
+    val curriculumShortName: String?
 )

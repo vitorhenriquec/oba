@@ -17,5 +17,5 @@ data class ObjectType (
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String
+	val name: String = ""
 )

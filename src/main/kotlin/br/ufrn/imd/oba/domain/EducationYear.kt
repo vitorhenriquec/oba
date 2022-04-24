@@ -19,9 +19,9 @@ data class EducationYear(
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String,
+	val name: String = "",
 
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id", name="education_level_id")
-	val educationLevel: EducationLevel
+	val educationLevel: EducationLevel = EducationLevel()
 )

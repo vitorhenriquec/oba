@@ -17,8 +17,8 @@ data class UseLicenseType (
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String,
+	val name: String = "",
 
 	@Column(name = "version")
-	val version: String,
+	val version: String = "",
 )

@@ -7,9 +7,12 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
+import org.hibernate.annotations.Cache
+import org.hibernate.annotations.CacheConcurrencyStrategy
 
 @Entity
 @Table(name="subject")
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 data class Subject (
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subject_gen")
@@ -17,5 +20,5 @@ data class Subject (
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String
+	val name: String = ""
 )

@@ -17,11 +17,11 @@ data class MaintainingAuthor (
 	val id: Long = 0L,
 
 	@Column(name = "name")
-	val name: String,
+	val name: String = "",
 
 	@Column(name = "email")
-	val email: String,
+	val email: String = "",
 
 	@Column(name = "site")
-	val site: String
+	val site: String = ""
 )
