@@ -12,19 +12,19 @@ INSERT INTO content_theme
 VALUES(4, 'Tratamento da informação', 1, 1);
 INSERT INTO content_theme
 (id, name, subject_id, curriculum_id)
-VALUES(5, 'Números', 1, 'BNCC');
+VALUES(5, 'Números', 1, 2);
 INSERT INTO content_theme
 (id, name, subject_id, curriculum_id)
-VALUES(6, 'Álgebra', 1, 'BNCC');
+VALUES(6, 'Álgebra', 1, 2);
 INSERT INTO content_theme
 (id, name, subject_id, curriculum_id)
-VALUES(7, 'Geometria', 1, 'BNCC');
+VALUES(7, 'Geometria', 1, 2);
 INSERT INTO content_theme
 (id, name, subject_id, curriculum_id)
-VALUES(8, 'Grandezas e medidas', 1, 'BNCC');
+VALUES(8, 'Grandezas e medidas', 1, 2);
 INSERT INTO content_theme
 (id, name, subject_id, curriculum_id)
-VALUES(9, 'Probabilidade e estatística', 1, 'BNCC');
+VALUES(9, 'Probabilidade e estatística', 1, 2);
 INSERT INTO content_theme
 (id, name, subject_id, curriculum_id)
-VALUES(10, 'Não identificado', 1, 'BNCC');
+VALUES(10, 'Não identificado', 1, 2);
