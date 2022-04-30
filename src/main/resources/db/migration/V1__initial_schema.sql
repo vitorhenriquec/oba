@@ -34,13 +34,6 @@ CREATE TABLE education_level (
 	CONSTRAINT education_level_pk PRIMARY KEY (id)
 );
 
-CREATE TABLE plataform (
-	id int8 NOT NULL,
-	name varchar(255) NOT NULL,
-	CONSTRAINT plataform_pk PRIMARY KEY (id)
-);
-
-
 CREATE TABLE use_license_type (
 	id int8 NOT NULL,
 	name varchar(255) NOT NULL,
@@ -77,10 +70,8 @@ CREATE TABLE learning_object (
 	view_type varchar(255) NOT NULL,
 	version varchar(255) NULL,
 	use_license_type_id int8 NULL,
-	plataform_id int8 NULL,
 	object_type_id int8 NULL,
 	CONSTRAINT learning_object_pk PRIMARY KEY (id),
-	CONSTRAINT learning_object_fk01 FOREIGN KEY (plataform_id) REFERENCES plataform(id),
 	CONSTRAINT learning_object_fk02 FOREIGN KEY (use_license_type_id) REFERENCES use_license_type(id),
 	CONSTRAINT learning_object_fk03 FOREIGN KEY (object_type_id) REFERENCES object_type(id)
 );
@@ -212,11 +203,6 @@ MAXVALUE 99999999999
 MINVALUE 1
 CACHE 10;
 
-CREATE SEQUENCE sq_plataform_id INCREMENT BY 1
-START WITH 1
-MAXVALUE 99999999999
-MINVALUE 1
-CACHE 10;
 
 CREATE SEQUENCE sq_content_theme_id INCREMENT BY 1
 START WITH 1

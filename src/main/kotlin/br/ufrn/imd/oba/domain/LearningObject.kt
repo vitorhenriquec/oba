@@ -72,10 +72,6 @@ data class LearningObject(
 	)
 	val maintainingAuthors: Set<MaintainingAuthor> = setOf(),
 
-	@JoinColumn(name="plataform_id")
-	@ManyToOne
-	val plataform: Plataform = Plataform(),
-
 	@JoinColumn(name="use_license_type_id")
 	@ManyToOne
 	val licencaDeUso: UseLicenseType = UseLicenseType(),
