@@ -20,19 +20,19 @@ data class Descriptor(
 	val id: Long = 0L,
 
 	@Column(name = "description")
-	val description: String,
+	val description: String = "",
 
 	@Column(name = "code")
-	val code: String,
+	val code: String = "",
 
 	@ManyToOne
 	@JoinColumn(name="content_theme_id")
 	val contentTheme: ContentTheme = ContentTheme(),
 
-	@ManyToMany(mappedBy="descriptors")
-	val learningObjects: List<LearningObject> = listOf(),
-
 	@ManyToOne
 	@JoinColumn(name = "education_level_id")
 	val educationLevel: EducationLevel = EducationLevel()
-)
+){
+	@ManyToMany(mappedBy="descriptors")
+	val learningObjects: MutableSet<LearningObject> = hashSetOf()
+}

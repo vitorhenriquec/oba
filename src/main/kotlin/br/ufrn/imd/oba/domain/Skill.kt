@@ -35,8 +35,8 @@ data class Skill (
 	val contentTheme: ContentTheme = ContentTheme(),
 
 	@OneToOne
-	val educationYear: EducationYear = EducationYear(),
-
+	val educationYear: EducationYear = EducationYear()
+){
 	@ManyToMany(mappedBy="skills")
-	val learningObjects: List<LearningObject> = listOf()
-)
+	val learningObjects: MutableSet<LearningObject> = hashSetOf()
+}

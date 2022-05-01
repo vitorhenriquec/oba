@@ -59,7 +59,7 @@ CREATE TABLE object_type (
 CREATE TABLE education_year (
 	id int8 NOT NULL,
 	name varchar(255) NOT NULL,
-	education_level_id int8 NULL,
+	education_level_id int8 NOT NULL,
 	CONSTRAINT education_year_pk PRIMARY KEY (id),
 	CONSTRAINT education_year_fk01 FOREIGN KEY (education_level_id) REFERENCES education_level(id)
 );
@@ -70,17 +70,13 @@ CREATE TABLE learning_object (
 	active bool NOT NULL,
 	release_date timestamp NULL,
 	description text NULL,
-	link text NOT NULL,
 	name varchar(255) NOT NULL,
 	thumbnail_path varchar(255) NULL,
 	accesses_number int4 NOT NULL,
-	view_type varchar(255) NOT NULL,
 	version varchar(255) NULL,
 	use_license_type_id int8 NULL,
-	plataform_id int8 NULL,
 	object_type_id int8 NULL,
 	CONSTRAINT learning_object_pk PRIMARY KEY (id),
-	CONSTRAINT learning_object_fk01 FOREIGN KEY (plataform_id) REFERENCES plataform(id),
 	CONSTRAINT learning_object_fk02 FOREIGN KEY (use_license_type_id) REFERENCES use_license_type(id),
 	CONSTRAINT learning_object_fk03 FOREIGN KEY (object_type_id) REFERENCES object_type(id)
 );
@@ -157,6 +153,15 @@ CREATE TABLE learning_object_skill (
 	CONSTRAINT learning_object_skill_fk02 FOREIGN KEY (skill_id) REFERENCES skill(id)
 );
 
+CREATE TABLE learning_object_plataform (
+	learning_object_id int8 NOT NULL,
+	plataform_id int8 NOT NULL,
+	access_type varchar(255) NOT NULL,
+	link text NOT NULL,
+	CONSTRAINT learning_object_skill_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
+	CONSTRAINT learning_object_skill_fk02 FOREIGN KEY (plataform_id) REFERENCES plataform(id)
+);
+
 
 CREATE SEQUENCE sq_education_year_id INCREMENT BY 1
 START WITH 1
@@ -212,11 +217,6 @@ MAXVALUE 99999999999
 MINVALUE 1
 CACHE 10;
 
-CREATE SEQUENCE sq_plataform_id INCREMENT BY 1
-START WITH 1
-MAXVALUE 99999999999
-MINVALUE 1
-CACHE 10;
 
 CREATE SEQUENCE sq_content_theme_id INCREMENT BY 1
 START WITH 1

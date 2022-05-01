@@ -3,12 +3,15 @@ package br.ufrn.imd.oba.domain;
 import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.OneToMany
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
+import org.hibernate.annotations.Fetch
+import org.hibernate.annotations.FetchMode
 
 @Entity
 @Table(name="education_level")
@@ -24,7 +27,4 @@ data class EducationLevel(
 
 	@Column(name = "short_name")
 	val shortName: String = "",
-
-	@OneToMany(mappedBy = "educationLevel", cascade = [CascadeType.ALL])
-	val educationYears: Set<EducationYear> = setOf()
 )

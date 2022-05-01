@@ -1,5 +1,7 @@
 package br.ufrn.imd.oba.request
 
+import br.ufrn.imd.oba.domain.AccessType
+import br.ufrn.imd.oba.validation.ValueOfAccessTypeEnum
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
@@ -19,7 +21,8 @@ data class LearningObjectSearchRequest (
 
     val skillId: Long?,
 
-    val viewType: String?,
+    @field:ValueOfAccessTypeEnum(enumClass = AccessType::class)
+    val accessType: String?,
 
     val curriculumShortName: String?
 )
