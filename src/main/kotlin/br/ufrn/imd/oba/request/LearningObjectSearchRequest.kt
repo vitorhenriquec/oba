@@ -19,7 +19,7 @@ data class LearningObjectSearchRequest (
 
     val skillId: Long?,
 
-    val viewType: String?,
+    val accessType: String?,
 
     val curriculumShortName: String?
 )

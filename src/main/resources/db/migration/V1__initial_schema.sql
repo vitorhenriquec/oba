@@ -34,6 +34,13 @@ CREATE TABLE education_level (
 	CONSTRAINT education_level_pk PRIMARY KEY (id)
 );
 
+CREATE TABLE plataform (
+	id int8 NOT NULL,
+	name varchar(255) NOT NULL,
+	CONSTRAINT plataform_pk PRIMARY KEY (id)
+);
+
+
 CREATE TABLE use_license_type (
 	id int8 NOT NULL,
 	name varchar(255) NOT NULL,
@@ -63,11 +70,9 @@ CREATE TABLE learning_object (
 	active bool NOT NULL,
 	release_date timestamp NULL,
 	description text NULL,
-	link text NOT NULL,
 	name varchar(255) NOT NULL,
 	thumbnail_path varchar(255) NULL,
 	accesses_number int4 NOT NULL,
-	view_type varchar(255) NOT NULL,
 	version varchar(255) NULL,
 	use_license_type_id int8 NULL,
 	object_type_id int8 NULL,
@@ -146,6 +151,15 @@ CREATE TABLE learning_object_skill (
 	CONSTRAINT learning_object_skill_pk PRIMARY KEY (learning_object_id, skill_id),
 	CONSTRAINT learning_object_skill_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
 	CONSTRAINT learning_object_skill_fk02 FOREIGN KEY (skill_id) REFERENCES skill(id)
+);
+
+CREATE TABLE learning_object_plataform (
+	learning_object_id int8 NOT NULL,
+	plataform_id int8 NOT NULL,
+	access_type varchar(255) NOT NULL,
+	link text NOT NULL,
+	CONSTRAINT learning_object_skill_fk01 FOREIGN KEY (learning_object_id) REFERENCES learning_object(id),
+	CONSTRAINT learning_object_skill_fk02 FOREIGN KEY (plataform_id) REFERENCES plataform(id)
 );
 
 

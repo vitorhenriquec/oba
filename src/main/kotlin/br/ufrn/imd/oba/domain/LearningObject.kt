@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn
 import javax.persistence.JoinTable
 import javax.persistence.ManyToMany
 import javax.persistence.ManyToOne
+import javax.persistence.OneToMany
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 
@@ -33,11 +34,8 @@ data class LearningObject(
 	@Column(name="accesses_number")
 	val accessesNumber: Int = 0,
 
-	@Column(name="link", columnDefinition="text")
-	val link: String = "",
-
 	@Column(name="thumbnail_path")
-	val thumbnailPath: String = "",
+	val thumbnailPath: String? = null,
 
 	@Column(name="release_date")
 	val releaseDate: LocalDateTime = LocalDateTime.now(),
@@ -51,10 +49,6 @@ data class LearningObject(
 
 	@Column(name="active")
 	val active: Boolean = false,
-
-	@Column(name="view_type")
-	@Enumerated(EnumType.STRING)
-	val viewType: ViewType = ViewType.DESKTOP_WEB,
 
 	@ManyToMany
 	@JoinTable(
@@ -90,5 +84,8 @@ data class LearningObject(
 		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
 		inverseJoinColumns=[JoinColumn(name="skill_id", referencedColumnName="id")]
 	)
-	val skills: Set<Skill> = setOf()
+	val skills: Set<Skill> = setOf(),
+
+	@OneToMany(mappedBy = "learningObject")
+	val learningObjectPlataforms: Set<LearningObjectPlataform> = setOf()
 )

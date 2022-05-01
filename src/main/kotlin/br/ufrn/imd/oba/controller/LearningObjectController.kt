@@ -1,10 +1,9 @@
 package br.ufrn.imd.oba.controller
 
-import br.ufrn.imd.oba.extension.toLeaningObjectFindByIdResponse
 import br.ufrn.imd.oba.request.LearningObjectSearchRequest
 import br.ufrn.imd.oba.response.LearningObjectFindAllByParamertsResponse
 import br.ufrn.imd.oba.response.LearningObjectFindByIdResponse
-import br.ufrn.imd.oba.service.LearningObjectService
+import br.ufrn.imd.oba.service.AbstractLeaningObjectService
 import javax.validation.Valid
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -25,7 +24,7 @@ import reactor.kotlin.core.publisher.toMono
     consumes = [MediaType.APPLICATION_JSON_VALUE]
 )
 class LearningObjectController(
-    private val learningObjectService: LearningObjectService
+    private val learningObjectService: AbstractLeaningObjectService
 ) {
 
     @GetMapping

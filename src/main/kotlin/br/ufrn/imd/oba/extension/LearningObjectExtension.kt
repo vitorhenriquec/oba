@@ -11,9 +11,9 @@ import kotlin.streams.toList
 
 fun LearningObject.learningObjectFindAllByParamertsResponse(): LearningObjectFindAllByParamertsResponse{
     return LearningObjectFindAllByParamertsResponse(
+        id = this.id,
         name = this.name,
         thumbnailPath = this.thumbnailPath,
-        link = this.link
     )
 }
 

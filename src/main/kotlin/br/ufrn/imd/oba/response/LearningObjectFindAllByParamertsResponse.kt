@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
 data class LearningObjectFindAllByParamertsResponse(
+    val id: Long,
+
     val name: String,
 
-    val link: String,
-
-    val thumbnailPath: String
+    val thumbnailPath: String?
 )
