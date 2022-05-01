@@ -40,7 +40,7 @@ fun LearningObject.toLeaningObjectFindByIdResponse(): LearningObjectFindByIdResp
                 code = descriptor.code,
                 shortName = descriptor.educationLevel.shortName
             )
-        }.toList(),
+        },
         skills = skills.map { skill ->
             SkillResponse(
                 id = skill.id,
