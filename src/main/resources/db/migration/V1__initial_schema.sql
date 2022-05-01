@@ -48,14 +48,6 @@ CREATE TABLE use_license_type (
 	CONSTRAINT use_license_type_pk PRIMARY KEY (id)
 );
 
-
-CREATE TABLE object_type (
-	id int8 NOT NULL,
-	name varchar(255) NOT NULL,
-	CONSTRAINT object_type_pk PRIMARY KEY (id)
-);
-
-
 CREATE TABLE education_year (
 	id int8 NOT NULL,
 	name varchar(255) NOT NULL,
@@ -75,10 +67,8 @@ CREATE TABLE learning_object (
 	accesses_number int4 NOT NULL,
 	version varchar(255) NULL,
 	use_license_type_id int8 NULL,
-	object_type_id int8 NULL,
 	CONSTRAINT learning_object_pk PRIMARY KEY (id),
-	CONSTRAINT learning_object_fk02 FOREIGN KEY (use_license_type_id) REFERENCES use_license_type(id),
-	CONSTRAINT learning_object_fk03 FOREIGN KEY (object_type_id) REFERENCES object_type(id)
+	CONSTRAINT learning_object_fk02 FOREIGN KEY (use_license_type_id) REFERENCES use_license_type(id)
 );
 
 
@@ -229,10 +219,3 @@ START WITH 1
 MAXVALUE 99999999999
 MINVALUE 1
 CACHE 10;
-
-CREATE SEQUENCE sq_object_type_id INCREMENT BY 1
-START WITH 1
-MAXVALUE 99999999999
-MINVALUE 1
-CACHE 10;
-

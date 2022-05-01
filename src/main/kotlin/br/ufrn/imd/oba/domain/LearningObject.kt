@@ -40,10 +40,6 @@ data class LearningObject(
 	@Column(name="release_date")
 	val releaseDate: LocalDateTime = LocalDateTime.now(),
 
-	@JoinColumn(name="object_type_id")
-	@ManyToOne
-	val objectType: ObjectType = ObjectType(),
-
 	@Column(name="version")
 	val version: String = "",
 
