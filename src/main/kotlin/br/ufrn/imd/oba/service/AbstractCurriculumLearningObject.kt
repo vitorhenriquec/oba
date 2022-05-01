@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 
 interface AbstractCurriculumLearningObject {
-    fun findParamertersByCurriculum(
+    fun findByAllParamertersForCurriculum(
         learningObjectSearchRequest: LearningObjectSearchRequest,
         pageable: Pageable
     ): Page<LearningObject>

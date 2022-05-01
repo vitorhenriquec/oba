@@ -1,5 +1,6 @@
 package br.ufrn.imd.oba.service
 
+import br.ufrn.imd.oba.domain.AccessType
 import br.ufrn.imd.oba.domain.LearningObject
 import br.ufrn.imd.oba.exception.LearningObjectNotFoundException
 import br.ufrn.imd.oba.extension.learningObjectFindAllByParamertsResponse
@@ -16,11 +17,12 @@ import org.springframework.stereotype.Service
 class PCNLearningObjectService(
     private val learningObjectRepository: LearningObjectRepository
 ): AbstractCurriculumLearningObject{
-    override fun findParamertersByCurriculum(
+    override fun findByAllParamertersForCurriculum(
         learningObjectSearchRequest: LearningObjectSearchRequest,
         pageable: Pageable
     ): Page<LearningObject> = learningObjectRepository.findAllActiveByNameAndViewTypeAndEducationLevelIdAndContentThemeIdAndSkillId(
             name= learningObjectSearchRequest.name,
+            accessType = learningObjectSearchRequest.accessType?.let { AccessType.valueOf(it)},
             educationLevelId = learningObjectSearchRequest.educationLevelId,
             contentThemeId = learningObjectSearchRequest.contentThemeId,
             skillId = learningObjectSearchRequest.skillId,

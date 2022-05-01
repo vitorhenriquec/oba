@@ -29,10 +29,10 @@ data class Descriptor(
 	@JoinColumn(name="content_theme_id")
 	val contentTheme: ContentTheme = ContentTheme(),
 
-	@ManyToMany(mappedBy="descriptors")
-	val learningObjects: List<LearningObject> = listOf(),
-
 	@ManyToOne
 	@JoinColumn(name = "education_level_id")
 	val educationLevel: EducationLevel = EducationLevel()
-)
+){
+	@ManyToMany(mappedBy="descriptors")
+	val learningObjects: MutableSet<LearningObject> = hashSetOf()
+}

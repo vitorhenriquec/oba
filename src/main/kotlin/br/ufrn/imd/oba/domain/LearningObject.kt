@@ -50,33 +50,33 @@ data class LearningObject(
 	@Column(name="active")
 	val active: Boolean = false,
 
+	@JoinColumn(name="use_license_type_id")
+	@ManyToOne
+	val licencaDeUso: UseLicenseType = UseLicenseType()
+) {
 	@ManyToMany
 	@JoinTable(
 		name="learning_object_idiom",
-		joinColumns = [javax.persistence.JoinColumn(name = "learning_object_id", referencedColumnName = "id")],
+		joinColumns = [JoinColumn(name = "learning_object_id", referencedColumnName = "id")],
 		inverseJoinColumns=[JoinColumn(name="idiom_id", referencedColumnName="id")]
 	)
-	val idiom: Set<Idiom> = setOf(),
+	val idiom: MutableSet<Idiom> = hashSetOf()
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 		name="learning_object_maintaining_author",
-		joinColumns = [javax.persistence.JoinColumn(name = "learning_object_id", referencedColumnName = "id")],
+		joinColumns = [JoinColumn(name = "learning_object_id", referencedColumnName = "id")],
 		inverseJoinColumns=[JoinColumn(name="maintaining_author_id", referencedColumnName="id")]
 	)
-	val maintainingAuthors: Set<MaintainingAuthor> = setOf(),
-
-	@JoinColumn(name="use_license_type_id")
-	@ManyToOne
-	val licencaDeUso: UseLicenseType = UseLicenseType(),
+	val maintainingAuthors: MutableSet<MaintainingAuthor> = hashSetOf()
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 		name="learning_object_descriptor",
 		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
-	    inverseJoinColumns=[JoinColumn(name="descriptor_id", referencedColumnName="id")]
+		inverseJoinColumns=[JoinColumn(name="descriptor_id", referencedColumnName="id")]
 	)
-	val descriptors: Set<Descriptor> = setOf(),
+	val descriptors: MutableSet<Descriptor> = hashSetOf()
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
@@ -84,8 +84,8 @@ data class LearningObject(
 		joinColumns = [JoinColumn(name="learning_object_id", referencedColumnName="id")],
 		inverseJoinColumns=[JoinColumn(name="skill_id", referencedColumnName="id")]
 	)
-	val skills: Set<Skill> = setOf(),
+	val skills: MutableSet<Skill> = hashSetOf()
 
-	@OneToMany(mappedBy = "learningObject")
-	val learningObjectPlataforms: Set<LearningObjectPlataform> = setOf()
-)
+	@OneToMany(mappedBy = "learningObject", fetch = FetchType.EAGER)
+	val learningObjectPlataforms: MutableList<LearningObjectPlataform> = mutableListOf()
+}

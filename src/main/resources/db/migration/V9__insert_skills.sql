@@ -598,3 +598,147 @@ VALUES(198, 8, 'EF07MA37', 'Gr??ficos de setores: interpreta????o, pertin??ncia 
 INSERT INTO skill
 (id, education_year_id, code, acquirements, description, content_theme_id)
 VALUES(199, 9, 'EF08MA01', 'Nota????o cient??fica', 'Efetuar c??lculos com pot??ncias de expoentes inteiros e aplicar esse conhecimento na representa????o de n??meros em nota????o cient??fica.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(200, 9, 'EF08MA02', 'Potencia????o e radicia????o', 'Resolver e elaborar problemas usando a rela????o entre potencia????o e radicia????o, para representar uma raiz como pot??ncia de expoente fracion??rio.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(201, 9, 'EF08MA03', 'O princ??pio multiplicativo da contagem', 'Resolver e elaborar problemas de contagem cuja resolu????o envolva a aplica????o do princ??pio multiplicativo.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(202, 9, 'EF08MA04', 'Porcentagens', 'Resolver e elaborar problemas, envolvendo c??lculo de porcentagens, incluindo o uso de tecnologias digitais.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(203, 9, 'EF08MA05', 'D??zimas peri??dicas: fra????o geratriz', 'Reconhecer e utilizar procedimentos para a obten????o de uma fra????o geratriz para uma d??zima peri??dica.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(204, 9, 'EF08MA06', 'Valor num??rico de express??es alg??bricas', 'Resolver e elaborar problemas que envolvam c??lculo do valor num??rico de express??es alg??bricas, utilizando as propriedades das opera????es.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(205, 9, 'EF08MA07', 'Associa????o de uma equa????o linear de 1?? grau a uma reta no plano cartesiano', 'Associar uma equa????o linear de 1?? grau com duas inc??gnitas a uma reta no plano cartesiano.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(206, 9, 'EF08MA08', 'Sistema de equa????es polinomiais de 1?? grau: resolu????o alg??brica e representa????o no plano cartesiano', 'Resolver e elaborar problemas relacionados ao seu contexto pr??ximo, que possam ser representados por sistemas de equa????es de 1?? grau com duas inc??gnitas e interpret??-los, utilizando, inclusive, o plano cartesiano como recurso.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(207, 9, 'EF08MA09', 'Equa????o polinomial de 2?? grau do tipo ax2 = b', 'Resolver e elaborar, com e sem uso de tecnologias, problemas que possam ser representados por equa????es polinomiais de 2?? grau do tipo ax2 = b.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(208, 9, 'EF08MA10', 'Sequ??ncias recursivas e n??o recursivas', 'Identificar a regularidade de uma sequ??ncia num??rica ou figural n??o recursiva e construir um algoritmo por meio de um fluxograma que permita indicar os n??meros ou as figuras seguintes.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(209, 9, 'EF08MA11', 'Sequ??ncias recursivas e n??o recursivas', 'Identificar a regularidade de uma sequ??ncia num??rica recursiva e construir um algoritmo por meio de um fluxograma que permita indicar os n??meros seguintes.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(210, 9, 'EF08MA12', 'Varia????o de grandezas: diretamente proporcionais, inversamente proporcionais ou n??o proporcionais', 'Identificar a natureza da varia????o de duas grandezas, diretamente, inversamente proporcionais ou n??o proporcionais, expressando a rela????o existente por meio de senten??a alg??brica e represent??-la no plano cartesiano.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(212, 9, 'EF08MA14', 'Congru??ncia de tri??ngulos e demonstra????es de propriedades de quadril??teros', 'Demonstrar propriedades de quadril??teros por meio da identifica????o da congru??ncia de tri??ngulos.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(213, 9, 'EF08MA15', 'Constru????es geom??tricas: ??ngulos de 90??, 60??, 45?? e 30?? e pol??gonos regulares', 'Construir, utilizando instrumentos de desenho ou softwares de geometria din??mica, mediatriz, bissetriz, ??ngulos de 90??, 60??, 45?? e 30?? e pol??gonos regulares.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(214, 9, 'EF08MA16', 'Constru????es geom??tricas: ??ngulos de 90??, 60??, 45?? e 30?? e pol??gonos regulares', 'Descrever, por escrito e por meio de um fluxograma, um algoritmo para a constru????o de um hex??gono regular de qualquer ??rea, a partir da medida do ??ngulo central e da utiliza????o de esquadros e compasso.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(215, 9, 'EF08MA17', 'Mediatriz e bissetriz como lugares geom??tricos: constru????o e problemas', 'Aplicar os conceitos de mediatriz e bissetriz como lugares geom??tricos na resolu????o de problemas.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(216, 9, 'EF08MA18', 'Transforma????es geom??tricas: simetrias de transla????o, reflex??o e rota????o', 'Reconhecer e construir figuras obtidas por composi????es de transforma????es geom??tricas (transla????o, reflex??o e rota????o), com o uso de instrumentos de desenho ou de softwares de geometria din??mica.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(217, 9, 'EF08MA19', '??rea de figuras planas, ??rea do c??rculo e comprimento de sua circunfer??ncia', 'Resolver e elaborar problemas que envolvam medidas de ??rea de figuras geom??tricas, utilizando express??es de c??lculo de ??rea (quadril??teros, tri??ngulos e c??rculos), em situa????es como determinar medida de terrenos.', 8);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(218, 9, 'EF08MA20', 'Volume de bloco retangular, Medidas de capacidade', 'Reconhecer a rela????o entre um litro e um dec??metro c??bico e a rela????o entre litro e metro c??bico, para resolver problemas de c??lculo de capacidade de recipientes.', 8);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(219, 9, 'EF08MA21', 'Volume de bloco retangular, Medidas de capacidade', 'Resolver e elaborar problemas que envolvam o c??lculo do volume de recipiente cujo formato ?? o de um bloco retangular.', 8);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(220, 9, 'EF08MA22', 'Princ??pio multiplicativo da contagem, Soma das probabilidades de todos os elementos de um espa??o amostral', 'Calcular a probabilidade de eventos, com base na constru????o do espa??o amostral, utilizando o princ??pio multiplicativo, e reconhecer que a soma das probabilidades de todos os elementos do espa??o amostral ?? igual a 1.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(221, 9, 'EF08MA23', 'Gr??ficos de barras, colunas, linhas ou setores e seus elementos constitutivos e adequa????o para determinado conjunto de dados', 'Avaliar a adequa????o de diferentes tipos de gr??ficos para representar um conjunto de dados de uma pesquisa.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(222, 9, 'EF08MA24', 'Organiza????o dos dados de uma vari??vel cont??nua em classes', 'Classificar as frequ??ncias de uma vari??vel cont??nua de uma pesquisa em classes, de modo que resumam os dados de maneira adequada para a tomada de decis??es.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(223, 9, 'EF08MA25', 'Medidas de tend??ncia central e de dispers??o', 'Obter os valores de medidas de tend??ncia central de uma pesquisa estat??stica (m??dia, moda e mediana) com a compreens??o de seus significados e relacion??-los com a dispers??o de dados, indicada pela amplitude.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(224, 9, 'EF08MA26', 'Pesquisas censit??ria ou amostral, Planejamento e execu????o de pesquisa amostral', 'Selecionar raz??es, de diferentes naturezas (f??sica, ??tica ou econ??mica), que justificam a realiza????o de pesquisas amostrais e n??o censit??rias, e reconhecer que a sele????o da amostra pode ser feita de diferentes maneiras (amostra casual simples, sistem??tica e estratificada).', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(225, 9, 'EF08MA27', 'Pesquisas censit??ria ou amostral, Planejamento e execu????o de pesquisa amostral', 'Planejar e executar pesquisa amostral, selecionando uma t??cnica de amostragem adequada, e escrever relat??rio que contenha os gr??ficos apropriados para representar os conjuntos de dados, destacando aspectos como as medidas de tend??ncia central, a amplitude e as conclus??es.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(226, 10, 'EF09MA01', 'Necessidade dos n??meros reais para medir qualquer segmento de reta, N??meros irracionais: reconhecimento e localiza????o de alguns na reta num??rica', 'Reconhecer que, uma vez fixada uma unidade de comprimento, existem segmentos de reta cujo comprimento n??o ?? expresso por n??mero racional (como as medidas de diagonais de um pol??gono e alturas de um tri??ngulo, quando se toma a medida de cada lado como unidade).', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(227, 10, 'EF09MA02', 'Necessidade dos n??meros reais para medir qualquer segmento de reta, N??meros irracionais: reconhecimento e localiza????o de alguns na reta num??rica', 'Reconhecer um n??mero irracional como um n??mero real cuja representa????o decimal ?? infinita e n??o peri??dica, e estimar a localiza????o de alguns deles na reta num??rica.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(228, 10, 'EF09MA03', 'Pot??ncias com expoentes negativos e fracion??rios', 'Efetuar c??lculos com n??meros reais, inclusive pot??ncias com expoentes fracion??rios.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(229, 10, 'EF09MA04', 'N??meros reais: nota????o cient??fica e problemas', 'Resolver e elaborar problemas com n??meros reais, inclusive em nota????o cient??fica, envolvendo diferentes opera????es.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(230, 10, 'EF09MA05', 'Porcentagens: problemas que envolvem c??lculo de percentuais sucessivos', 'Resolver e elaborar problemas que envolvam porcentagens, com a ideia de aplica????o de percentuais sucessivos e a determina????o das taxas percentuais, preferencialmente com o uso de tecnologias digitais, no contexto da educa????o financeira.', 5);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(231, 10, 'EF09MA06', 'Fun????es: representa????es num??rica, alg??brica e gr??fica', 'Compreender as fun????es como rela????es de depend??ncia un??voca entre duas vari??veis e suas representa????es num??rica, alg??brica e gr??fica e utilizar esse conceito para analisar situa????es que envolvam rela????es funcionais entre duas vari??veis.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(232, 10, 'EF09MA07', 'Raz??o entre grandezas de esp??cies diferentes', 'Resolver problemas que envolvam a raz??o entre duas grandezas de esp??cies diferentes, como velocidade e densidade demogr??fica.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(233, 10, 'EF09MA08', 'Grandezas diretamente proporcionais e grandezas inversamente proporcionais', 'Resolver e elaborar problemas que envolvam rela????es de proporcionalidade direta e inversa entre duas ou mais grandezas, inclusive escalas, divis??o em partes proporcionais e taxa de varia????o, em contextos socioculturais, ambientais e de outras ??reas.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(234, 10, 'EF09MA09', 'Express??es alg??bricas: fatora????o e produtos not??veis, Resolu????o de equa????es polinomiais do 2?? grau por meio de fatora????es', 'Compreender os processos de fatora????o de express??es alg??bricas, com base em suas rela????es com os produtos not??veis, para resolver e elaborar problemas que possam ser representados por equa????es polinomiais do 2?? grau.', 6);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(235, 10, 'EF09MA10', 'Demonstra????es de rela????es entre os ??ngulos formados por retas paralelas intersectadas por uma transversal', 'Demonstrar rela????es simples entre os ??ngulos formados por retas paralelas cortadas por uma transversal.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(236, 10, 'EF09MA11', 'Rela????es entre arcos e ??ngulos na circunfer??ncia de um c??rculo', 'Resolver problemas por meio do estabelecimento de rela????es entre arcos, ??ngulos centrais e ??ngulos inscritos na circunfer??ncia, fazendo uso, inclusive, de softwares de geometria din??mica.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(237, 10, 'EF09MA12', 'Semelhan??a de tri??ngulos', 'Reconhecer as condi????es necess??rias e suficientes para que dois tri??ngulos sejam semelhantes.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(238, 10, 'EF09MA13', 'Rela????es m??tricas no tri??ngulo ret??ngulo, Teorema de Pit??goras: verifica????es experimentais e demonstra????o, Retas paralelas cortadas por transversais: teoremas de proporcionalidade e verifica????es experimentais', 'Demonstrar rela????es m??tricas do tri??ngulo ret??ngulo, entre elas o teorema de Pit??goras, utilizando, inclusive, a semelhan??a de tri??ngulos.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(239, 10, 'EF09MA14', 'Rela????es m??tricas no tri??ngulo ret??ngulo, Teorema de Pit??goras: verifica????es experimentais e demonstra????o, Retas paralelas cortadas por transversais: teoremas de proporcionalidade e verifica????es experimentais', 'Resolver e elaborar problemas de aplica????o do teorema de Pit??goras ou das rela????es de proporcionalidade envolvendo retas paralelas cortadas por secantes.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(240, 10, 'EF09MA15', 'Pol??gonos regulares', 'Descrever, por escrito e por meio de um fluxograma, um algoritmo para a constru????o de um pol??gono regular cuja medida do lado ?? conhecida, utilizando r??gua e compasso, como tamb??m softwares.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(241, 10, 'EF09MA16', 'Dist??ncia entre pontos no plano cartesiano', 'Determinar o ponto m??dio de um segmento de reta e a dist??ncia entre dois pontos quaisquer, dadas as coordenadas desses pontos no plano cartesiano, sem o uso de f??rmulas, e utilizar esse conhecimento para calcular, por exemplo, medidas de per??metros e ??reas de figuras planas constru??das no plano.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(242, 10, 'EF09MA17', 'Vistas ortogonais de figuras espaciais', 'Reconhecer vistas ortogonais de figuras espaciais e aplicar esse conhecimento para desenhar objetos em perspectiva.', 7);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(243, 10, 'EF09MA18', 'Unidades de medida para medir dist??ncias muito grandes e muito pequenas, Unidades de medida utilizadas na inform??tica', 'Reconhecer e empregar unidades usadas para expressar medidas muito grandes ou muito pequenas, tais como dist??ncia entre planetas e sistemas solares, tamanho de v??rus ou de c??lulas, capacidade de armazenamento de computadores, entre outros.', 8);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(244, 10, 'EF09MA19', 'Volume de prismas e cilindros', 'Resolver e elaborar problemas que envolvam medidas de volumes de prismas e de cilindros retos, inclusive com uso de express??es de c??lculo, em situa????es cotidianas.', 8);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(245, 10, 'EF09MA20', 'An??lise de probabilidade de eventos aleat??rios: eventos dependentes e independentes', 'Reconhecer, em experimentos aleat??rios, eventos independentes e dependentes e calcular a probabilidade de sua ocorr??ncia, nos dois casos.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(246, 10, 'EF09MA21', 'An??lise de gr??ficos divulgados pela m??dia: elementos que podem induzir a erros de leitura ou de interpreta????o', 'Analisar e identificar, em gr??ficos divulgados pela m??dia, os elementos que podem induzir, ??s vezes propositadamente, erros de leitura, como escalas inapropriadas, legendas n??o explicitadas corretamente, omiss??o de informa????es importantes (fontes e datas), entre outros.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(247, 10, 'EF09MA22', 'Leitura, interpreta????o e representa????o de dados de pesquisa expressos em tabelas de dupla entrada, gr??ficos de colunas simples e agrupadas, gr??ficos de barras e de setores e gr??ficos pict??ricos', 'Escolher e construir o gr??fico mais adequado (colunas, setores, linhas), com ou sem uso de planilhas eletr??nicas, para apresentar um determinado conjunto de dados, destacando aspectos como as medidas de tend??ncia central.', 9);
+INSERT INTO skill
+(id, education_year_id, code, acquirements, description, content_theme_id)
+VALUES(248, 10, 'EF09MA23', 'Planejamento e execu????o de pesquisa amostral e apresenta????o de relat??rio', 'Planejar e executar pesquisa amostral envolvendo tema da realidade social e comunicar os resultados por meio de relat??rio contendo avalia????o de medidas de tend??ncia central e da amplitude, tabelas e gr??ficos adequados, constru??dos com o apoio de planilhas eletr??nicas.', 9);

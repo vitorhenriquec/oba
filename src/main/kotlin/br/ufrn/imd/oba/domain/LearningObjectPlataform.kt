@@ -5,6 +5,7 @@ import javax.persistence.EmbeddedId
 import javax.persistence.Entity
 import javax.persistence.EnumType
 import javax.persistence.Enumerated
+import javax.persistence.FetchType
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 import javax.persistence.MapsId
@@ -24,13 +25,11 @@ data class LearningObjectPlataform (
     @Column(name="link", columnDefinition="text", nullable = false)
     val link: String = "",
 
-    @ManyToOne
-    @MapsId("learning_object_id")
-    @JoinColumn(name="learning_object_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @MapsId("learningObjectId")
     val learningObject: LearningObject = LearningObject(),
 
-    @ManyToOne
-    @MapsId("plataform_id")
-    @JoinColumn(name="plataform_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @MapsId("plataformId")
     val plataform: Plataform = Plataform()
 )

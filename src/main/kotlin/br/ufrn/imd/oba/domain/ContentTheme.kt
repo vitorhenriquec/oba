@@ -32,10 +32,10 @@ data class ContentTheme (
 	@JoinColumn(referencedColumnName="id", name="subject_id")
 	val subject: Subject = Subject(),
 
-	@OneToMany(mappedBy = "contentTheme", cascade = [CascadeType.ALL], fetch = FetchType.LAZY, )
-	@Fetch(value= FetchMode.SELECT)
-	val skills: Set<Skill> = emptySet(),
-
 	@OneToOne
 	val curriculum: Curriculum = Curriculum(),
-)
+){
+	@OneToMany(mappedBy = "contentTheme", cascade = [CascadeType.ALL], fetch = FetchType.LAZY, )
+	@Fetch(value= FetchMode.SELECT)
+	val skills: MutableSet<Skill> = hashSetOf()
+}

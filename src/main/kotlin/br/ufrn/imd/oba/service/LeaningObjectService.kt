@@ -7,7 +7,6 @@ import br.ufrn.imd.oba.repository.LearningObjectRepository
 import br.ufrn.imd.oba.request.LearningObjectSearchRequest
 import br.ufrn.imd.oba.response.LearningObjectFindAllByParamertsResponse
 import br.ufrn.imd.oba.response.LearningObjectFindByIdResponse
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.support.AbstractBeanFactory
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -15,15 +14,15 @@ import org.springframework.stereotype.Service
 
 @Service
 class LeaningObjectService(
-    private val learningObjectRepository: LearningObjectRepository
+    private val learningObjectRepository: LearningObjectRepository,
+    private val curriculumService: CurriculumService,
+    private val beanFactory: AbstractBeanFactory
 ) {
-    @Autowired
-    private lateinit var beanFactory: AbstractBeanFactory
+    companion object {
+        private const val defaultCurriculumForSeach = "BNCC"
+    }
 
-    @Autowired
-    private lateinit var curriculumService: CurriculumService
-
-    final fun findAllByParameters(
+    fun findAllByParameters(
         pageable: Pageable,
         learningObjectSearchRequest: LearningObjectSearchRequest
     ): Page<LearningObjectFindAllByParamertsResponse> {
@@ -31,17 +30,18 @@ class LeaningObjectService(
 
         val searchForCurriculum = !curriculumName.isNullOrBlank()
 
-        val beanNameToCall = if (searchForCurriculum) { curriculumName} else { "BNCC"}
+        val beanNameToCall = if (searchForCurriculum) { curriculumName } else { defaultCurriculumForSeach }
 
-        return if (searchForCurriculum) {
+        return if(searchForCurriculum) {
             curriculumService.findByShortName(curriculumName!!).let {
-               (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject).findParamertersByCurriculum(
-                   learningObjectSearchRequest,
-                   pageable
-               )
+                (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject).findByAllParamertersForCurriculum(
+                    learningObjectSearchRequest,
+                    pageable
+                )
+
             }
         } else {
-            (beanFactory.getBean("BNCC-LearningObjectService") as AbstractCurriculumLearningObject).findParamertersByCurriculum(
+            (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject).findByAllParamertersForCurriculum(
                 learningObjectSearchRequest,
                 pageable
             )
@@ -50,7 +50,7 @@ class LeaningObjectService(
         }
     }
 
-    final fun findById(learningObjectId:Long): LearningObjectFindByIdResponse {
+    fun findById(learningObjectId:Long): LearningObjectFindByIdResponse {
         return learningObjectRepository.findById(learningObjectId)
             .orElseThrow{ LearningObjectNotFoundException() }.toLeaningObjectFindByIdResponse()
     }

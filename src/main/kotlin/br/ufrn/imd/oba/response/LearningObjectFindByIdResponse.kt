@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
 data class LearningObjectFindByIdResponse(
+    val id: Long,
+
     val name: String,
 
     val maintainingAuthors: List<MaintainingAuthorResponse>,

@@ -9,5 +9,13 @@ data class LearningObjectFindAllByParamertsResponse(
 
     val name: String,
 
-    val thumbnailPath: String?
+    val thumbnailPath: String?,
+
+    val accesses: List<AccessResponse>
+)
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
+data class AccessResponse(
+    val link: String,
+    val type: String,
+    val plataform: String
 )
