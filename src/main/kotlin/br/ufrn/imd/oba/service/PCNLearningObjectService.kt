@@ -15,15 +15,12 @@ import org.springframework.stereotype.Service
 @Service("PCN-LearningObjectService")
 class PCNLearningObjectService(
     private val learningObjectRepository: LearningObjectRepository
-): AbstractLeaningObjectService(
-    learningObjectRepository
-) {
+): AbstractCurriculumLearningObject{
     override fun findParamertersByCurriculum(
         learningObjectSearchRequest: LearningObjectSearchRequest,
         pageable: Pageable
     ): Page<LearningObject> = learningObjectRepository.findAllActiveByNameAndViewTypeAndEducationLevelIdAndContentThemeIdAndSkillId(
             name= learningObjectSearchRequest.name,
-            accessType=learningObjectSearchRequest.accessType,
             educationLevelId = learningObjectSearchRequest.educationLevelId,
             contentThemeId = learningObjectSearchRequest.contentThemeId,
             skillId = learningObjectSearchRequest.skillId,

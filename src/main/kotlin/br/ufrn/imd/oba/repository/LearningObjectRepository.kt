@@ -20,7 +20,6 @@ interface LearningObjectRepository: JpaRepository<LearningObject, Long> {
     )
     fun findAllActiveByNameAndViewTypeAndEducationLevelIdAndContentThemeIdAndDescriptorId(
         @Param("name") name: String,
-        @Param("viewType") accessType: String?,
         @Param("educationLevelId") educationLevelId: Long?,
         @Param("contentThemeId") contentThemeId: Long?,
         @Param("descriptorId") descriptorId: Long?,
@@ -40,7 +39,6 @@ interface LearningObjectRepository: JpaRepository<LearningObject, Long> {
     )
     fun findAllActiveByNameAndViewTypeAndEducationLevelIdAndContentThemeIdAndSkillId(
         @Param("name") name: String,
-        @Param("viewType") accessType: String?,
         @Param("educationLevelId") educationLevelId: Long?,
         @Param("contentThemeId") contentThemeId: Long?,
         @Param("skillId") skillId: Long?,

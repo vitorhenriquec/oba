@@ -1,6 +1,5 @@
 package br.ufrn.imd.oba.service
 
-import br.ufrn.imd.oba.domain.LearningObject
 import br.ufrn.imd.oba.exception.LearningObjectNotFoundException
 import br.ufrn.imd.oba.extension.learningObjectFindAllByParamertsResponse
 import br.ufrn.imd.oba.extension.toLeaningObjectFindByIdResponse
@@ -12,10 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.support.AbstractBeanFactory
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
-@Component
-abstract class AbstractLeaningObjectService(
+@Service
+class LeaningObjectService(
     private val learningObjectRepository: LearningObjectRepository
 ) {
     @Autowired
@@ -30,15 +29,19 @@ abstract class AbstractLeaningObjectService(
     ): Page<LearningObjectFindAllByParamertsResponse> {
         val curriculumName = learningObjectSearchRequest.curriculumShortName
 
-        return if (!curriculumName.isNullOrBlank()) {
-            curriculumService.findByShortName(curriculumName).let {
-               (beanFactory.getBean("${curriculumName}-LearningObjectService") as AbstractLeaningObjectService).findParamertersByCurriculum(
+        val searchForCurriculum = !curriculumName.isNullOrBlank()
+
+        val beanNameToCall = if (searchForCurriculum) { curriculumName} else { "BNCC"}
+
+        return if (searchForCurriculum) {
+            curriculumService.findByShortName(curriculumName!!).let {
+               (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject).findParamertersByCurriculum(
                    learningObjectSearchRequest,
                    pageable
                )
             }
         } else {
-            (beanFactory.getBean("BNCC-LearningObjectService") as AbstractLeaningObjectService).findParamertersByCurriculum(
+            (beanFactory.getBean("BNCC-LearningObjectService") as AbstractCurriculumLearningObject).findParamertersByCurriculum(
                 learningObjectSearchRequest,
                 pageable
             )
@@ -46,11 +49,6 @@ abstract class AbstractLeaningObjectService(
             it.learningObjectFindAllByParamertsResponse()
         }
     }
-
-    abstract fun findParamertersByCurriculum(
-        learningObjectSearchRequest: LearningObjectSearchRequest,
-        pageable: Pageable
-    ): Page<LearningObject>
 
     final fun findById(learningObjectId:Long): LearningObjectFindByIdResponse {
         return learningObjectRepository.findById(learningObjectId)
