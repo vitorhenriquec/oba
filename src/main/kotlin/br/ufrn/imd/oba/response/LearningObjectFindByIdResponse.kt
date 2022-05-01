@@ -20,7 +20,9 @@ data class LearningObjectFindByIdResponse(
 data class MaintainingAuthorResponse(
     val name: String,
 
-    val site: String
+    val site: String,
+    val id: Long,
+    val email: String
 )
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
@@ -29,7 +31,8 @@ data class DescriptorResponse(
 
     val code: String,
 
-    val shortName: String
+    val shortName: String,
+    val id: Long
 )
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
@@ -38,7 +41,8 @@ data class SkillResponse(
 
     val code: String,
 
-    val shortName: String
+    val shortName: String,
+    val id: Long
 )
 
 
