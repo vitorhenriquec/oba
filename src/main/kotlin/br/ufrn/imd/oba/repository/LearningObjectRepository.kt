@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param
 
 interface LearningObjectRepository: JpaRepository<LearningObject, Long> {
     @Query(
-         " SELECT lo FROM LearningObject lo " +
+         " SELECT distinct lo FROM LearningObject lo " +
          " LEFT JOIN lo.descriptors d " +
          " LEFT JOIN lo.learningObjectPlataforms lop " +
          " WHERE lower(lo.name) like CONCAT('%',:name,'%') " +
@@ -31,7 +31,7 @@ interface LearningObjectRepository: JpaRepository<LearningObject, Long> {
 
 
     @Query(
-         " SELECT lo FROM LearningObject lo " +
+         " SELECT distinct lo FROM LearningObject lo " +
          " LEFT JOIN lo.skills s " +
          " LEFT JOIN lo.learningObjectPlataforms lop " +
          " WHERE lower(lo.name) like CONCAT('%',:name,'%') " +
