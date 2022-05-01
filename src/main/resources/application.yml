@@ -4,9 +4,9 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: OBA_ADMIN
-    password: OBA_LOCAL
+    url: jdbc:postgresql://${rds.hostname}:{rds.port}/${rds.db.name}
+    username: ${rds.username}
+    password: ${rds.password}
   jpa:
     database: POSTGRESQL
     hibernate:
