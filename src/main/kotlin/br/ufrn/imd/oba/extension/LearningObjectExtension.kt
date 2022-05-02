@@ -34,12 +34,7 @@ fun LearningObject.toLeaningObjectFindByIdResponse(): LearningObjectFindByIdResp
            )
         },
         descriptors = descriptors.map { descriptor ->
-            DescriptorResponse(
-                id = descriptor.id,
-                description = descriptor.description,
-                code = descriptor.code,
-                shortName = descriptor.educationLevel.shortName
-            )
+            descriptor.toDescriptorResponse()
         },
         skills = skills.map { skill ->
             SkillResponse(
