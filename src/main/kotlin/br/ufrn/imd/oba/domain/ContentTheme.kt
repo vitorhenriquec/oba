@@ -35,6 +35,7 @@ data class ContentTheme (
 	@OneToOne
 	val curriculum: Curriculum = Curriculum(),
 ){
+
 	@OneToMany(mappedBy = "contentTheme", cascade = [CascadeType.ALL], fetch = FetchType.LAZY, )
 	@Fetch(value= FetchMode.SELECT)
 	val skills: MutableSet<Skill> = hashSetOf()
