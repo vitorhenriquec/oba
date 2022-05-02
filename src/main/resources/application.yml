@@ -4,7 +4,7 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     platform: postgres
-    url: jdbc:postgresql://${rds.hostname}:{rds.port}/${rds.db.name}
+    url: jdbc:postgresql://${rds.hostname}:${rds.port}/${rds.db.name}
     username: ${rds.username}
     password: ${rds.password}
   jpa:
@@ -15,4 +15,4 @@ spring:
   database:
     driverClassName: org.postgresql.Driver
   flyway:
-    enabled: false
+    enabled: true
