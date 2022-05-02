@@ -16,3 +16,4 @@ spring:
     driverClassName: org.postgresql.Driver
   flyway:
     enabled: true
+    outOfOrder: true
