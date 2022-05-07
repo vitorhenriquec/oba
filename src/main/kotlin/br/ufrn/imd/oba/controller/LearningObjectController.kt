@@ -1,5 +1,7 @@
 package br.ufrn.imd.oba.controller
 
+import br.ufrn.imd.oba.extension.learningObjectFindAllByParamertsResponse
+import br.ufrn.imd.oba.extension.toLeaningObjectFindByIdResponse
 import br.ufrn.imd.oba.request.LearningObjectSearchRequest
 import br.ufrn.imd.oba.response.LearningObjectFindAllByParamertsResponse
 import br.ufrn.imd.oba.response.LearningObjectFindByIdResponse
@@ -33,6 +35,9 @@ class LearningObjectController(
         @RequestBody @Valid request: LearningObjectSearchRequest
     ): Page<LearningObjectFindAllByParamertsResponse> {
         return learningObjectService.findAllByParameters(pageable, request)
+            .map {
+                it.learningObjectFindAllByParamertsResponse()
+            }
     }
 
     @GetMapping("/{learningObjectId}")
@@ -40,5 +45,6 @@ class LearningObjectController(
         @PathVariable("learningObjectId") learningObjectId: Long
     ): LearningObjectFindByIdResponse {
         return learningObjectService.findById(learningObjectId)
+        .toLeaningObjectFindByIdResponse()
     }
 }

@@ -8,9 +8,6 @@ fun ContentTheme.toContentThemeResponse(): ContentThemeResponse {
     return ContentThemeResponse(
         id = id,
         name = name,
-        curriculum = CurriculumResponse(
-            id = id,
-            name = name
-        )
+        curriculum = curriculum.toCurriculumRespose()
     )
 }

@@ -1,5 +1,6 @@
 package br.ufrn.imd.oba.service
 
+import br.ufrn.imd.oba.domain.LearningObject
 import br.ufrn.imd.oba.exception.LearningObjectNotFoundException
 import br.ufrn.imd.oba.extension.learningObjectFindAllByParamertsResponse
 import br.ufrn.imd.oba.extension.toLeaningObjectFindByIdResponse
@@ -25,7 +26,7 @@ class LeaningObjectService(
     fun findAllByParameters(
         pageable: Pageable,
         learningObjectSearchRequest: LearningObjectSearchRequest
-    ): Page<LearningObjectFindAllByParamertsResponse> {
+    ): Page<LearningObject> {
         val curriculumName = learningObjectSearchRequest.curriculumShortName
 
         val searchForCurriculum = !curriculumName.isNullOrBlank()
@@ -38,13 +39,11 @@ class LeaningObjectService(
                         learningObjectSearchRequest,
                         pageable
                     )
-        }.map {
-            it.learningObjectFindAllByParamertsResponse()
         }
     }
 
-    fun findById(learningObjectId:Long): LearningObjectFindByIdResponse {
+    fun findById(learningObjectId:Long): LearningObject {
         return learningObjectRepository.findById(learningObjectId)
-            .orElseThrow{ LearningObjectNotFoundException() }.toLeaningObjectFindByIdResponse()
+            .orElseThrow{ LearningObjectNotFoundException() }
     }
 }

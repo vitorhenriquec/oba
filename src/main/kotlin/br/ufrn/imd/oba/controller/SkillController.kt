@@ -1,5 +1,6 @@
 package br.ufrn.imd.oba.controller
 
+import br.ufrn.imd.oba.extension.toSkillResponse
 import br.ufrn.imd.oba.response.DescriptorResponse
 import br.ufrn.imd.oba.response.SkillResponse
 import br.ufrn.imd.oba.service.DescriptorService
@@ -27,6 +28,8 @@ class SkillController(
     fun findAll(
         @PageableDefault(page = 0, size = 10, sort = ["code"]) pageable: Pageable,
     ): Page<SkillResponse> {
-        return skillService.findAll(pageable)
+        return skillService.findAll(pageable).map {
+            it.toSkillResponse()
+        }
     }
 }

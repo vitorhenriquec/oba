@@ -1,5 +1,6 @@
 package br.ufrn.imd.oba.controller
 
+import br.ufrn.imd.oba.extension.toDescriptorResponse
 import br.ufrn.imd.oba.response.DescriptorResponse
 import br.ufrn.imd.oba.service.DescriptorService
 import org.springframework.data.domain.Page
@@ -25,6 +26,8 @@ class DescriptorController(
     fun findAll(
         @PageableDefault(page = 0, size = 10, sort = ["code"]) pageable: Pageable,
     ): Page<DescriptorResponse> {
-        return descriptorService.findAll(pageable)
+        return descriptorService.findAll(pageable).map {
+            it.toDescriptorResponse()
+        }
     }
 }
