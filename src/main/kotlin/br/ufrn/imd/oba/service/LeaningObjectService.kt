@@ -32,19 +32,12 @@ class LeaningObjectService(
 
         val beanNameToCall = if (searchForCurriculum) { curriculumName } else { defaultCurriculumForSeach }
 
-        return if(searchForCurriculum) {
-            curriculumService.findByShortName(curriculumName!!).let {
-                (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject).findByAllParamertersForCurriculum(
-                    learningObjectSearchRequest,
-                    pageable
-                )
-
-            }
-        } else {
-            (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject).findByAllParamertersForCurriculum(
-                learningObjectSearchRequest,
-                pageable
-            )
+        return curriculumService.findByShortName(curriculumName!!).let {
+                (beanFactory.getBean("${beanNameToCall}-LearningObjectService") as AbstractCurriculumLearningObject)
+                    .findByAllParamertersForCurriculum(
+                        learningObjectSearchRequest,
+                        pageable
+                    )
         }.map {
             it.learningObjectFindAllByParamertsResponse()
         }
