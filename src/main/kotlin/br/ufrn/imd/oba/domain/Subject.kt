@@ -12,7 +12,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy
 
 @Entity
 @Table(name="subject")
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 data class Subject (
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subject_gen")

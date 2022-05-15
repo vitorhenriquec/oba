@@ -12,7 +12,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy
 
 @Entity
 @Table(name = "curriculum")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 data class Curriculum(
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "curriculum_gen")

@@ -12,7 +12,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy
 
 @Entity
 @Table(name="idiom")
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 data class Idiom (
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idiom_gen")
