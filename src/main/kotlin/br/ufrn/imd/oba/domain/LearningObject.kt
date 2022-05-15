@@ -3,8 +3,6 @@ package br.ufrn.imd.oba.domain
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
-import javax.persistence.EnumType
-import javax.persistence.Enumerated
 import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
@@ -48,7 +46,7 @@ data class LearningObject(
 
 	@JoinColumn(name="use_license_type_id")
 	@ManyToOne
-	val licencaDeUso: UseLicenseType = UseLicenseType()
+	val useLincenseType: UseLicenseType = UseLicenseType()
 ) {
 	@ManyToMany
 	@JoinTable(
