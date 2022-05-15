@@ -21,15 +21,14 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping(
     "/v1/learning_object",
-    produces = [MediaType.APPLICATION_JSON_VALUE],
-    consumes = [MediaType.APPLICATION_JSON_VALUE]
+    produces = [MediaType.APPLICATION_JSON_VALUE]
 )
 @Validated
 class LearningObjectController(
     private val learningObjectService: LeaningObjectService
 ) {
 
-    @GetMapping
+    @GetMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
     fun findAllByParameters(
         @PageableDefault(page = 0, size = 10, sort = ["name"]) pageable: Pageable,
         @RequestBody @Valid request: LearningObjectSearchRequest
