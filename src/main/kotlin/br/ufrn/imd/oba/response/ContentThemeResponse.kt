@@ -16,5 +16,5 @@ data class ContentThemeResponse(
 data class CurriculumResponse(
     val id: Long,
 
-    val name: String
+    val shortName: String
 )

@@ -1,5 +1,6 @@
 package br.ufrn.imd.oba.controller
 
+import br.ufrn.imd.oba.extension.toContentThemeResponse
 import br.ufrn.imd.oba.response.ContentThemeResponse
 import br.ufrn.imd.oba.service.ContentThemeService
 import org.springframework.data.domain.Page
@@ -8,6 +9,7 @@ import org.springframework.data.web.PageableDefault
 import org.springframework.http.MediaType
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -22,8 +24,14 @@ class ContentThemeController(
 ) {
     @GetMapping
     fun findAll(
-        @PageableDefault(page = 0, size = 10, sort = ["name"]) pageable: Pageable,
+        @RequestHeader("curriculum_id") curriculumId: Long,
+        @PageableDefault(page = 0, size = 10, sort = ["shortName"]) pageable: Pageable,
     ): Page<ContentThemeResponse> {
-        return contentThemeService.findAll(pageable)
+        return contentThemeService.findAllByCurriculumId(
+            curriculumId,
+            pageable
+        ).map {
+            it.toContentThemeResponse()
+        }
     }
 }
